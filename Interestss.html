@@ -1,0 +1,729 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:bold;
+}
+body{
+  background: #007bff;
+  padding: 0 10px;
+}
+
+#birthday{
+padding:8px;
+width:450px;
+}
+
+.radiobutton
+{
+
+	padding-left:25px;
+	padding-top:-20px;
+	display:flex;
+}
+
+h6{
+color:red;
+text-align:center;
+}
+
+.wrapper{
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 40px;
+   border-radius:80px;
+}
+
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #007bff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 80px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 105%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+  background: #fec107;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+  display: block;
+}
+
+.wrapper .form .inputfield .btn{
+  width: 60%;
+   padding: 8px 50px;
+  font-size: 15px; 
+  border: 0px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+
+.wrapper .form .inputfield .btn:hover{
+  background: #17a2b8;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+</style>
+
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pelican Chat</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title">
+      Pelican Chat Interest Page
+	    <h6>Must provide atleast 3 ratings</h6>
+    </div>
+    <div class="form">
+    
+        <div class="inputfield">
+          <label>Music</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+            </select>
+          </div>
+       </div> 
+	   
+
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		<div>
+		  <input type="radio" id="huey" name="group1" value="0">
+		  <label for="huey">0</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="group1" value="1"
+				 checked>
+		  <label for="huey">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="group1" value="2">
+		  <label for="huey">2</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="group1" value="3">
+		  <label for="huey">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="group1" value="4">
+		  <label for="huey">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="group1" value="5">
+		  <label for="huey">5</label>
+		</div>
+		<div>
+		  <input type="radio" id="huey" name="group1" value="6"
+				 checked>
+		  <label for="huey">6</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="group1" value="7">
+		  <label for="huey">7</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="group1" value="8">
+		  <label for="huey">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="group1" value="9">
+		  <label for="huey">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="group1" value="10">
+		  <label for="huey">10</label>
+
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	   
+	           <div class="inputfield">
+          <label>Sports</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+             
+            </select>
+          </div>
+       </div> 
+	   
+	   
+	   
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		<div>
+		  <input type="radio" id="huey" name="drone" value="0">
+		  <label for="huey">0</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="1"
+				 checked>
+		  <label for="huey">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="drone" value="2">
+		  <label for="huey">2</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="drone" value="3">
+		  <label for="huey">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="4">
+		  <label for="huey">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="5">
+		  <label for="huey">5</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="6"
+				 checked>
+		  <label for="huey">6</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="drone" value="7">
+		  <label for="huey">7</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="drone" value="8">
+		  <label for="huey">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="9">
+		  <label for="huey">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="huey" name="drone" value="10">
+		  <label for="huey">10</label>
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	           <div class="inputfield">
+          <label>Food</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+             
+            </select>
+          </div>
+       </div> 
+	   
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		<div>
+		  <input type="radio" id="group2" name="group2" value="0">
+		  <label for="huey">0</label>
+		</div>
+		<div>
+		  <input type="radio" id="group2" name="group2" value="1"
+				 checked>
+		  <label for="huey">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group2" name="group2" value="2">
+		  <label for="huey">2</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group2" name="group2" value="3">
+		  <label for="huey">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group2" name="group2" value="4">
+		  <label for="huey">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group2" name="group2" value="5">
+		  <label for="huey">5</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group2" name="group2" value="6"
+				 checked>
+		  <label for="group2">6</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="huey" name="group2" value="7">
+		  <label for="group2">7</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group2" name="group2" value="8">
+		  <label for="group2">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group2" name="group2" value="9">
+		  <label for="group2">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group2" name="group2" value="10">
+		  <label for="group2">10</label>
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	   
+	   
+	   
+	           <div class="inputfield">
+          <label>Books</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+             
+            </select>
+          </div>
+       </div> 
+	   
+	   
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		<div>
+		  <input type="radio" id="group3" name="group3" value="0"
+				 checked>
+		  <label for="group3">0</label>
+		</div>
+		<div>
+		  <input type="radio" id="group3" name="group3" value="1"
+				 checked>
+		  <label for="group3">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group3" name="group3" value="2"
+				 checked>
+		  <label for="group3">2</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="3"
+				 checked>
+		  <label for="group3">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="4"
+				 checked>
+		  <label for="group3">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="5"
+				 checked>
+		  <label for="group3">5</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="6"
+				 checked>
+		  <label for="group3">6</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="7"
+				 checked>
+		  <label for="group3">7</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="8"
+				 checked>
+		  <label for="group3">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="9"
+				 checked>
+		  <label for="group3">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group3" name="group3" value="10"
+				 checked>
+		  <label for="group3">10</label>
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	   
+	   
+	           <div class="inputfield">
+          <label>Games</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+             
+            </select>
+          </div>
+       </div> 
+	   
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		<div>
+		  <input type="radio" id="group4" name="group4" value="0"
+				 checked>
+		  <label for="group4">0</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="1"
+				 checked>
+		  <label for="group4">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group4" name="group4" value="2"
+				 checked>
+		  <label for="group4">2</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="3"
+				 checked>
+		  <label for="group4">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="4"
+				 checked>
+		  <label for="group4">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="5"
+				 checked>
+		  <label for="group4">5</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="6"
+				 checked>
+		  <label for="group4">6</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="7"
+				 checked>
+		  <label for="group4">7</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="8"
+				 checked>
+		  <label for="group4">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="9"
+				 checked>
+		  <label for="group4">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group4" name="group4" value="10"
+				 checked>
+		  <label for="group4">10</label>
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	   
+	           <div class="inputfield">
+          <label>Travel</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+			   <option value="3">3</option>
+              <option value="4">4</option>
+			   <option value="5">5</option>
+             
+            </select>
+          </div>
+       </div> 
+	   
+	      <div class="inputfield">
+		 <p>Importance level</p>
+		<div class="radiobutton">
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="0"
+				 checked>
+		  <label for="group5">0</label>
+		</div>
+		
+			<div>
+		  <input type="radio" id="group5" name="group5" value="1"
+				 checked>
+		  <label for="group5">1</label>
+		</div>
+
+		<div>
+		  <input type="radio" id="group5" name="group5" value="2"
+				 checked>
+		  <label for="group5">2</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="3"
+				 checked>
+		  <label for="group5">3</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="4"
+				 checked>
+		  <label for="group5">4</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="5"
+				 checked>
+		  <label for="group5">5</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="6"
+				 checked>
+		  <label for="group5">6</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="7"
+				 checked>
+		  <label for="group5">7</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="8"
+				 checked>
+		  <label for="group5">8</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="9"
+				 checked>
+		  <label for="group5">9</label>
+		</div>
+		
+		<div>
+		  <input type="radio" id="group5" name="group5" value="10"
+				 checked>
+		  <label for="group5">10</label>
+		</div>
+		  </div> 	  
+       </div> 
+	   
+	  
+	   <br>
+	   
+      <div class="inputfield">
+        <input type="submit" id=btn;" class="btn">
+      </div>
+    </div>
+</div>	
+	
+
+</body>
+</html>
